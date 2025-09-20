@@ -1,0 +1,20 @@
+<%- include('partials/header') %>
+
+    <div class="container text-center mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <h1 class="display-1 text-danger">500</h1>
+                <h2>Server Error</h2>
+                <p class="lead">Something went wrong on our end.</p>
+                <% if (typeof error !== 'undefined') { %>
+                    <div class="alert alert-danger">
+                        <strong>Error:</strong>
+                        <%= error %>
+                    </div>
+                    <% } %>
+                        <a href="/" class="btn btn-primary">Go Home</a>
+            </div>
+        </div>
+    </div>
+
+    <%- include('partials/footer') %>

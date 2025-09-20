@@ -1,0 +1,51 @@
+<%- include('../partials/header') %>
+
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Edit Supplier</h3>
+                </div>
+                <div class="card-body">
+                    <form action="/suppliers/<%= supplier._id %>?_method=PUT" method="POST">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" class="form-control <%= errors.name ? 'is-invalid' : '' %>" id="name" name="name" value="<%= supplier.name %>" required>
+                            <% if (errors.name) { %>
+                                <div class="invalid-feedback">
+                                    <%= errors.name %>
+                                </div>
+                                <% } %>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="address" class="form-label">Address</label>
+                            <textarea class="form-control <%= errors.address ? 'is-invalid' : '' %>" id="address" name="address" rows="3" required><%= supplier.address %></textarea>
+                            <% if (errors.address) { %>
+                                <div class="invalid-feedback">
+                                    <%= errors.address %>
+                                </div>
+                                <% } %>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="phone" class="form-label">Phone</label>
+                            <input type="tel" class="form-control <%= errors.phone ? 'is-invalid' : '' %>" id="phone" name="phone" value="<%= supplier.phone %>" required>
+                            <% if (errors.phone) { %>
+                                <div class="invalid-feedback">
+                                    <%= errors.phone %>
+                                </div>
+                                <% } %>
+                        </div>
+
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                            <a href="/suppliers" class="btn btn-secondary me-md-2">Cancel</a>
+                            <button type="submit" class="btn btn-primary">Update Supplier</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <%- include('../partials/footer') %>

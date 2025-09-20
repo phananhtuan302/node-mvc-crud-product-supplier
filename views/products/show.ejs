@@ -1,0 +1,89 @@
+<%- include('../partials/header') %>
+
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h3>Product Details</h3>
+                    <div>
+                        <a href="/products/<%= product._id %>/edit" class="btn btn-warning btn-sm">Edit</a>
+                        <a href="/products" class="btn btn-secondary btn-sm">Back to List</a>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <strong>Name:</strong>
+                            <p>
+                                <%= product.name %>
+                            </p>
+                        </div>
+                        <div class="col-md-6">
+                            <strong>Price:</strong>
+                            <p>$
+                                <%= product.price.toFixed(2) %>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <strong>Quantity:</strong>
+                            <p>
+                                <%= product.quantity %>
+                            </p>
+                        </div>
+                        <div class="col-md-6">
+                            <strong>Supplier:</strong>
+                            <p>
+                                <% if (product.supplierId) { %>
+                                    <a href="/suppliers/<%= product.supplierId._id %>">
+                                        <%= product.supplierId.name %>
+                                    </a>
+                                    <% } else { %>
+                                        N/A
+                                        <% } %>
+                            </p>
+                        </div>
+                    </div>
+
+                    <% if (product.supplierId) { %>
+                        <div class="row mt-3">
+                            <div class="col-12">
+                                <h5>Supplier Information</h5>
+                                <p><strong>Address:</strong>
+                                    <%= product.supplierId.address %>
+                                </p>
+                                <p><strong>Phone:</strong>
+                                    <%= product.supplierId.phone %>
+                                </p>
+                            </div>
+                        </div>
+                        <% } %>
+
+                            <div class="row mt-3">
+                                <div class="col-md-6">
+                                    <strong>Created:</strong>
+                                    <p>
+                                        <%= new Date(product.createdAt).toLocaleDateString() %>
+                                    </p>
+                                </div>
+                                <div class="col-md-6">
+                                    <strong>Last Updated:</strong>
+                                    <p>
+                                        <%= new Date(product.updatedAt).toLocaleDateString() %>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="mt-4">
+                                <form action="/products/<%= product._id %>?_method=DELETE" method="POST" class="d-inline" onsubmit="return confirm('Are you sure you want to delete this product?')">
+                                    <button type="submit" class="btn btn-danger">Delete Product</button>
+                                </form>
+                            </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <%- include('../partials/footer') %>

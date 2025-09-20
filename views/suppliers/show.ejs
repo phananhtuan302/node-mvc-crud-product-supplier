@@ -1,0 +1,63 @@
+<%- include('../partials/header') %>
+
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h3>Supplier Details</h3>
+                    <div>
+                        <a href="/suppliers/<%= supplier._id %>/edit" class="btn btn-warning btn-sm">Edit</a>
+                        <a href="/suppliers" class="btn btn-secondary btn-sm">Back to List</a>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <strong>Name:</strong>
+                            <p>
+                                <%= supplier.name %>
+                            </p>
+                        </div>
+                        <div class="col-md-6">
+                            <strong>Phone:</strong>
+                            <p>
+                                <%= supplier.phone %>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12">
+                            <strong>Address:</strong>
+                            <p>
+                                <%= supplier.address %>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="row mt-3">
+                        <div class="col-md-6">
+                            <strong>Created:</strong>
+                            <p>
+                                <%= new Date(supplier.createdAt).toLocaleDateString() %>
+                            </p>
+                        </div>
+                        <div class="col-md-6">
+                            <strong>Last Updated:</strong>
+                            <p>
+                                <%= new Date(supplier.updatedAt).toLocaleDateString() %>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="mt-4">
+                        <form action="/suppliers/<%= supplier._id %>?_method=DELETE" method="POST" class="d-inline" onsubmit="return confirm('Are you sure you want to delete this supplier?')">
+                            <button type="submit" class="btn btn-danger">Delete Supplier</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <%- include('../partials/footer') %>

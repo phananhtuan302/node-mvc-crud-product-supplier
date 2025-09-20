@@ -1,0 +1,37 @@
+<%- include('partials/header') %>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="jumbotron bg-primary text-white p-5 rounded">
+                <h1 class="display-4">Welcome to CRUD App</h1>
+                <p class="lead">Manage your suppliers and products efficiently</p>
+                <hr class="my-4">
+                <p>Choose an option below to get started</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Suppliers</h5>
+                    <p class="card-text">Manage supplier information including name, address, and phone</p>
+                    <a href="/suppliers" class="btn btn-primary">View Suppliers</a>
+                    <a href="/suppliers/new" class="btn btn-success">Add New Supplier</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Products</h5>
+                    <p class="card-text">Manage product information including name, description, price, and supplier</p>
+                    <a href="/products" class="btn btn-primary">View Products</a>
+                    <a href="/products/new" class="btn btn-success">Add New Product</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <%- include('partials/footer') %>
