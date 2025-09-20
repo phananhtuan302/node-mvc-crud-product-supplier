@@ -36,8 +36,8 @@ PORT=3000
 bash
 Sao chép mã
 npm start
-Truy cập: http://localhost:3000/suppliers
-hoặc http://localhost:3000/products
+Truy cập: http://localhost:3100/suppliers
+hoặc http://localhost:3100/products
 
 📂 Cấu trúc thư mục
 arduino
