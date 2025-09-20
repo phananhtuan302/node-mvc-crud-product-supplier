@@ -21,7 +21,7 @@ Dự án web CRUD đơn giản cho **nhà cung cấp (Supplier)** và **sản ph
 
 ### 1. Clone repo
 ```bash
-git clone https://github.com/<username>/node-mvc-crud-product-supplier.git
+git clone https://github.com/phananhtuan302/node-mvc-crud-product-supplier.git
 cd node-mvc-crud-product-supplier
 2. Cài đặt dependencies
 bash
